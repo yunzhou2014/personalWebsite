@@ -1,0 +1,220 @@
+/* line 1, e:\personalWebsite\css\app */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+/* line 9, e:\personalWebsite\css\app */
+.education-entry,
+.work-entry,
+.project-entry {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+/* line 15, e:\personalWebsite\css\app */
+h1 {
+  font-size: 40px;
+  color: #F5A623;
+  line-height: 48px;
+  display: inline;
+}
+/* line 23, e:\personalWebsite\css\app */
+h2 {
+  font-style: bold;
+  font-size: 24px;
+  color: #999999;
+  line-height: 29px;
+  padding: 10px;
+}
+/* line 31, e:\personalWebsite\css\app */
+h3 {
+  font-style: italic;
+  font-size: 20px;
+  color: #000000;
+  line-height: 22px;
+}
+/* line 38, e:\personalWebsite\css\app */
+h4 {
+  font-style: bold;
+  font-size: 14px;
+  color: #4A4A4A;
+  line-height: 17px;
+}
+/* line 45, e:\personalWebsite\css\app */
+h2,
+h3,
+h4,
+h5 {
+  padding: 10px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+/* line 52, e:\personalWebsite\css\app */
+.date-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #999999;
+  line-height: 16px;
+  float: left;
+}
+/* line 60, e:\personalWebsite\css\app */
+.location-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #999999;
+  line-height: 16px;
+  float: right;
+}
+/* line 69, e:\personalWebsite\css\app */
+p {
+  font-size: 14px;
+  color: #333333;
+  line-height: 21px;
+}
+/* line 75, e:\personalWebsite\css\app */
+a {
+  color: #1199C3;
+  text-decoration: none;
+  margin-top: 10px;
+  display: block;
+}
+/* line 82, e:\personalWebsite\css\app */
+.welcome-message {
+  font-style: italic;
+  font-size: 18px;
+  color: #F3F3F3;
+  line-height: 28px;
+}
+/* line 89, e:\personalWebsite\css\app */
+#skillsH3 {
+  color: #F5AE23;
+  display: none;
+}
+/* line 94, e:\personalWebsite\css\app */
+#skills {
+  display: none;
+}
+/* line 98, e:\personalWebsite\css\app */
+.orange {
+  background-color: #F5AE23;
+}
+/* line 102, e:\personalWebsite\css\app */
+.orange-text {
+  color: #F5AE23;
+}
+/* line 106, e:\personalWebsite\css\app */
+.white-text {
+  font-weight: bold;
+  color: #FFFFFF;
+}
+/* line 111, e:\personalWebsite\css\app */
+.gray {
+  background-color: #F3F3F3;
+  padding-bottom: 10px;
+  clear: both;
+}
+/* line 117, e:\personalWebsite\css\app */
+.dark-gray {
+  background-color: #4A4A4A;
+}
+/* TODO: Replace with image later */
+/* line 122, e:\personalWebsite\css\app */
+#header {
+  background-color: #484848;
+}
+/* line 126, e:\personalWebsite\css\app */
+.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+/* line 135, e:\personalWebsite\css\app */
+.center-content {
+  padding: 5%;
+}
+/* line 139, e:\personalWebsite\css\app */
+ul {
+  list-style-type: none;
+}
+/* line 144, e:\personalWebsite\css\app */
+.biopic {
+  float: left;
+  padding: 10px;
+  width: 200px;
+  display: none;
+}
+/* line 151, e:\personalWebsite\css\app */
+img {
+  padding: 10px;
+  height: auto;
+}
+/* Bar chart stuff */
+/* line 158, e:\personalWebsite\css\app */
+.chart div {
+  font: 10px sans-serif;
+  background-color: #4A4A4A;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  height: 12px;
+  color: white;
+  display: inline-block;
+}
+/* line 169, e:\personalWebsite\css\app */
+span {
+  padding: 5px;
+}
+/* line 173, e:\personalWebsite\css\app */
+#letsConnect {
+  text-align: center;
+}
+@media only screen and (max-width: 1024px) {
+  /* line 178, e:\personalWebsite\css\app */
+  #letsConnect {
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  /* line 184, e:\personalWebsite\css\app */
+  .biopic {
+    width: 175px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  /* line 190, e:\personalWebsite\css\app */
+  #letsConnect {
+    margin-top: 10%;
+  }
+  /* line 193, e:\personalWebsite\css\app */
+  .biopic {
+    width: 150px;
+  }
+  /* line 196, e:\personalWebsite\css\app */
+  .welcome-message {
+    display: none;
+  }
+}
+/* line 201, e:\personalWebsite\css\app */
+#map {
+  display: block;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+/* line 208, e:\personalWebsite\css\app */
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
+}
+@media only screen and (min-width: 750px) {
+  /* line 215, e:\personalWebsite\css\app */
+  #skillsH3,
+  #skills,
+  .biopic {
+    display: block;
+  }
+}
