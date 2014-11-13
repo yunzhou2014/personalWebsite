@@ -4,7 +4,14 @@
     font-family: 'Roboto', sans-serif;
 }
 
+html, body {
+  font-size: 16px;
+  color: black;
+}
 
+hr {
+  margin: 0;
+}
 
 .education-entry, .work-entry, .project-entry {
   padding-left: 5%;
@@ -13,7 +20,7 @@
 
 
 h1 {
-
+  font-weight: bold;
   font-size: 40px;
   color: #F5A623;
   line-height: 48px;
@@ -21,7 +28,7 @@ h1 {
 }
 
 h2 {
-  font-style: bold;
+  font-weight: bold;
   font-size: 24px;
   color: #999999;
   line-height: 29px;
@@ -36,13 +43,14 @@ h3 {
 }
 
 h4 {
-  font-style: bold;
+  font-weight: bold;
   font-size: 14px;
   color: #4A4A4A;
   line-height: 17px;
 }
 
 h2, h3, h4, h5 {
+  margin: 0;
   padding:10px;
   padding-left: 5%;
   padding-right: 5%;
@@ -67,16 +75,19 @@ h2, h3, h4, h5 {
 }
 
 p {
-  font-size: 14px;
+  font-size: 16px;
   color: #333333;
   line-height: 21px;
 }
 
 a {
   color: #1199C3;
-  text-decoration: none;
   margin-top: 10px;
   display: block;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .welcome-message {
@@ -121,6 +132,7 @@ a {
 /* TODO: Replace with image later */
 #header {
   background-color: #484848;
+  font-size: 16px;
 }
 
 .flex-box {
@@ -133,13 +145,47 @@ a {
 }
 
 .center-content {
-  padding: 5%;
+  padding: 4%;
 }
 
 ul {
   list-style-type: none;
 }
 
+i{
+  transition: all 0.4s;
+}
+
+.one-button {
+  cursor: pointer;
+  color: #fff;
+  z-index: 99999;
+}
+
+.one-button:hover i{
+  color: #09c;
+}
+
+.one-button:active{
+  transition: 0.1s;
+}
+
+.one-button i{
+  color: #fff;
+  position: relative;;
+  z-index: 99999;
+}
+
+ul#social{
+  position: absolute;
+  display: inline;
+  li {
+    margin: 0;
+    padding: 5px;
+    list-style-type: none;
+    display: inline-block;
+  }
+}
 
 .biopic {
   float: left;

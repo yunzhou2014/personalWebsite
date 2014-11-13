@@ -13,7 +13,7 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = "<h1 id='name'>%data%</h1>";
-var HTMLheaderRole = "<span>%data%</span><hr/>";
+var HTMLheaderRole = "<span>%data%</span>";
 
 var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%</span><span class='white-text'>%data%</span></li>";
 var HTMLmobile = "<li class='flex-item'><span class='orange-text'>mobile</span><span class='white-text'>%data%</span></li>";
@@ -33,13 +33,13 @@ var HTMLworkStart = "<div class='work-entry'></div>";
 var HTMLworkEmployer = "<a href='#'>%data%";
 var HTMLworkTitle = " - %data%</a>";
 var HTMLworkDates = "<div class='date-text'>%data%</div>";
-var HTMLworkLocation = "<div class='location-text'>%data%</div>";
-var HTMLworkDescription = "<p><br>%data%</p>";
+var HTMLworkLocation = "<div class='location-text'>%data%</div><br>";
+var HTMLworkDescription = "<li>%data%</li>";
 
 var HTMLprojectStart = "<div class='project-entry'></div>";
 var HTMLprojectTitle = "<a href='#'>%data%</a>";
-var HTMLprojectDates = "<div class='date-text'>%data%</div>";
-var HTMLprojectDescription = "<p><br>%data%</p>";
+var HTMLprojectDates = "<div class='date-text'>%data%</div><br>";
+var HTMLprojectDescription = "<p>%data%</p>";
 var HTMLprojectImage = "<img src='%data%'>";
 
 var HTMLschoolStart = "<div class='education-entry'></div>";
@@ -55,7 +55,9 @@ var HTMLonlineSchool = " - %data%</a>";
 var HTMLonlineDates = "<div class='date-text'>%data%</div>";
 var HTMLonlineURL = "<br><a href='#'>%data%</a>";
 
-var internationalizeButton = "<button>Internationalize</button>";
+var internationalizeButton = "<button class='btn btn-info pull-right' data-toggle='tooltip' \
+ data-placement='top' title='Click and check my last name now!'>Internationalize</button>";
+
 var googleMap = "<div id='map'></div>";
 
 
@@ -64,10 +66,19 @@ The International Name challenge in Lesson 2 where you'll create a function that
 */
 $(document).ready(function() {
   $('button').click(function() {
-    var iName = inName() || function(){};
-    $('#name').html(iName);  
-  });
+    if($(this).hasClass('active')){
+      $(this).removeClass('active');
+      $('#name').html(bio.name); 
+    }
+    else {
+      var iName = inName() || function(){};
+        $('#name').html(iName);  
+        $(this).addClass('active');
+    }
+    });
+    $('[data-toggle="tooltip"]').tooltip();
 })
+
 
 
 
@@ -116,7 +127,7 @@ function initializeMap() {
   };
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
-  // <div id="map">, which is appended as part of an exercise late in the course.
+  // <div id="map">.
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
@@ -235,9 +246,6 @@ function initializeMap() {
   
 };
 
-/*
-Uncomment all the code below when you're ready to implement a Google Map!
-*/
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);

@@ -1,4 +1,5 @@
-var skills = ["HTML/5","CSS/3","Javascript","jQuery","LESS", "Bootstrap"];
+var skills = ["HTML/5","CSS/3","JavaScript/JQuery","LESS",
+ "Bootstrap3", "Node.js", "C++/C", "Python", "Java"];
 
 var bio = {
 	"name": "Yun Zhou",
@@ -9,8 +10,8 @@ var bio = {
 		"github": "yunzhou2014",
 		"location": "Hayward, CA"
 	},
-	"bioPic": "images/me.png",
-	"welcomeMessage": "Innovative Self-studied Web Developer",
+	"bioPic": "images/me.jpg",
+	"welcomeMessage": "Passionate about Front-end ",
 	"skills": skills
 };
 
@@ -28,7 +29,7 @@ var education = {
 		"location": "Nanjing, China",
 		"degree": "Bachelor of Engineering",
 		"major": "Telecommunications Engineering",
-		"dates": "2012 - May 2014"
+		"dates": "2008 - 2012"
 	}
   ]
 };
@@ -40,14 +41,29 @@ var work = {
 		"employer": "Edge 3 Technologies",
 		"dates": "July 2014 - September 2014",
 		"location": "Tempe, AZ",
-		"description": "Converted computer vision algorithms from MATLAB to C++ using OpenCV library. Conducted testing on multiple subjects using color, monochrome and infrared cameras to determine best performance settings. Use of UML diagrams, Git to assist software development process."
+		"description": ["Converted computer vision algorithms from Matlab to C++ using OpenCV library.",
+			"Conducted testing on multiple subjects using color, monochrome and infrared cameras to determine best performance settings.",
+			"Use of UML diagrams, Git to assist software development process."]
 	},
 	{
 		"title": "Research Assistant",
-		"employer": "University of Rochester",
-		"dates": "June 2014 - May 2014",
+		"employer": "Wireless Communication and Networking Group, University of Rochester",
+		"dates": "June 2013 - May 2014",
 		"location": "Rochester, NY",
-		"description": "Debugged MATLAB code for emotion classification using speech feature extraction and multiclass SVM classification. Wrote MATLAB code to automate the process of choosing among kernels functions to achieve better performance. Applied feature selection and threshold-based fusion to improve the performance of SVM system. Conducted extensive analysis of the speech-based emotion classification system, including gender-dependent test, leave-one-subject-out test and test on noisy speech. Refined and added new features to the existing MATLAB GUI for the emotion classification system. Used AndroidPlot API to create a line chart for the BaNa pitch detection android app and refined the UI design."
+		"description": ["Debugged Matlab code for emotion classification using speech feature extraction and multiclass SVM classification.", 
+			"Wrote Matlab code to automate the process of choosing among kernels functions and applied feature selection and threshold-based fusion to improve the performance of SVM system.",
+			"Conducted extensive analysis of the speech-based emotion classification system, including gender-dependent test, leave-one-subject-out test and test on noisy speech.", 
+			"Refined and added new features to the existing Matlab GUI for the emotion classification system.", 
+			"Used AndroidPlot API to create a line chart for the BaNa pitch detection android app and refined the UI design."]
+	},
+	{
+		"title": "Research Assistant",
+		"employer": "Visual Intelligence & Social Multimedia Analytics Research Group, University of Rochester",
+		"dates": "Sept 2013 - March 2014",
+		"location": "Rochester, NY",
+		"description": ["Researched in using non-contact multimodal signals to monitor mental health state of users engaged in online social media, involved with experiment setup, data collection, and data processing.", 
+			"Applied non-contact video-based analysis to obtain human vital signal, specifically heart rate.",
+			"Used streaming APIs provided by Twitter to collect tweets and conducted sentiment analysis using Sentiment 140 API."]
 	}
   ]
 };
@@ -55,9 +71,10 @@ var work = {
 var projects = {
 	"projects": [
 	{
-		"title": "Machine Vision Project",
-		"description":"member of two person team, sought to use non-contact multimodal signals to monitor mental health state of users engaged in online social media. Applied non-contact video-based analysis to obtain human vital signal, specifically heart rate. Used streaming APIs provided by Twitter to collect tweets and conducted sentiment analysis using Sentiment 140 API.",
-		"images": ""
+		"title": "Educational Website Template",
+		"description":"Rewrote visually diverse, responsive educational website template to practice front-end techniques such as HTML5, CSS3, Less, Bootstrap3 and JavaScript/jQuery",
+		"images": "",
+		"link":"http://edu-template.herokuapp.com/"
 
 	},
 	{
@@ -66,8 +83,8 @@ var projects = {
 		"images": ""
 	},
 	{
-		"title": "Data Mining Project",
-		"description": "Collected tweets from Twitter and analyzed how users' interest change from three criteria -location, content of tweets and attitude.",
+		"title": "Data Mining Projects",
+		"description": "Implemented two frequent pattern mining algorithms, Apriori and FP-Growth, compared the time efficiency. Mined social media (Twitter) data about how users' interest in a topic changes.",
 		"images": ""
 	}
   ]
@@ -82,8 +99,8 @@ var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
 var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
 var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+$("#social").before(formattedName);
+$("#social").before(formattedRole);
 
 $("#topContacts").prepend(formattedLocation);
 $("#topContacts").prepend(formattedGithub);
@@ -118,12 +135,19 @@ function displayWork()
 
 			var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 			var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-			var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
 			$(".work-entry:last").append(formattedEmployerTitle);
 			$(".work-entry:last").append(formattedDates);
 			$(".work-entry:last").append(formattedLocation);
-			$(".work-entry:last").append(formattedDescription);
+
+			if(work.jobs[job].description.length > 0)
+			{
+				for(des in work.jobs[job].description)
+				{
+					var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description[des]);
+					$(".work-entry:last").append(formattedDescription);
+				}
+			}
 		}	
 	}
 }
@@ -140,7 +164,7 @@ function inName()
 	return nameArray[0] + " " + nameArray[1];
 }
 
-$("#main").append(internationalizeButton);
+$("#social").after(internationalizeButton);
 
 projects.display = function()
 {
@@ -151,20 +175,28 @@ projects.display = function()
 			$("#projects").append(HTMLprojectStart);
 
 			var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+			if(projects.projects[project].hasOwnProperty('link'))
+			{
+				var openNewWindow = "target='_blank' data-toggle='tooltip' data-placement='top' title='Check it out'";
+				formattedTitle = formattedTitle.replace("href='#'","href='"+ projects.projects[project].link + "' " + openNewWindow);
+			}
 			var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 
 			$(".project-entry:last").append(formattedTitle);
 			$(".project-entry:last").append(formattedDescription);
-		}
 
-		if(projects.projects[project].images.length > 0)
-		{
-			for(image in projects.projects[project].images)
+		
+			if(projects.projects[project].images.length > 0)
 			{
-				var formattedDescription = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-				$(".project-entry:last").append(formattedImage);
-			}	
-		}	
+				for(image in projects.projects[project].images)
+				{
+					var formattedDescription = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+					$(".project-entry:last").append(formattedImage);
+				}	
+			}
+
+
+		}
 	}
 
 }
